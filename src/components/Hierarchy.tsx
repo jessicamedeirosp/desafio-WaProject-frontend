@@ -8,7 +8,7 @@ export function Hierarchy() {
     <div className="hierarchy__container">
       <ul className="hierarchy__list no-space-left">
         {items.map((item) => 
-          <Item item={item} prefix={1}/>
+          <Item key={item.id} item={item} prefix={1}/>
         )}
       </ul>    
     </div>

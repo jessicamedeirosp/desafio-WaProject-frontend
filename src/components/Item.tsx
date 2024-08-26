@@ -13,7 +13,7 @@ export function Item({item, prefix}: ItemProps) {
       {item.children && item.children.length > 0 && (
         <ul className="hierarchy__list">
           {item.children.map((child) => 
-            <Item item={child} prefix={prefix + 1}/>
+            <Item key={child.id} item={child} prefix={prefix + 1}/>            
           )}
         </ul>
       )}
