@@ -6,15 +6,44 @@ interface FormProps {
   prefix: number
 }
 
-export function Form({item , prefix}: FormProps) {  
-  const { addItem } = useItem();
+export function Form({item, prefix}: FormProps) {  
+  const { items, setItems, addItem } = useItem();
+
+  function updateItem(list: IItem[], id: string, newName: string): IItem[]  {
+    return list.map((element) => {
+      let newElement = element
+
+      if (item.id === id) {
+        newElement = { 
+          ...element, 
+          name: newName 
+        };
+        return newElement
+      }
+
+      if (item.children) {
+        newElement = { 
+          ...element, 
+          children: updateItem(item.children, id, newName) 
+        };
+        return newElement
+      }
+
+      return newElement;
+    });
+  };
+
+  function handleItemChange(id: string, newName: string) {
+    setItems(updateItem(items, id, newName));
+  }; 
 
   return (
     <>
       <span className="hierarchy__prefix">Nível {prefix}</span>
       <input
         type="text"
-        value={item.name}       
+        value={item.name}
+        onChange={(e) => handleItemChange(item.id, e.target.value)}
         placeholder="Digite o nome do item"
         className="hierarchy__input"
       />
