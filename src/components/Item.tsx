@@ -1,4 +1,5 @@
 import { IItem } from "../interfaces/Item"
+import { Form } from "./Form";
 
 interface ItemProps {
   item: IItem 
@@ -8,16 +9,7 @@ interface ItemProps {
 export function Item({item, prefix}: ItemProps) {
   return (
     <li key={item.id} className="hierarchy__item">
-      <span className="hierarchy__prefix">Nível {prefix}</span>
-      <input
-        type="text"
-        value={item.name}       
-        placeholder="Digite o nome do item"
-        className="hierarchy__input"
-      />
-      <button className="hierarchy__button">
-        Nível {prefix + 1} - Adicionar item
-      </button>
+      <Form prefix={prefix} item={item} />
       {item.children && item.children.length > 0 && (
         <ul className="hierarchy__list">
           {item.children.map((child) => 
