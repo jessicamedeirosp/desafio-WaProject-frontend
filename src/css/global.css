@@ -36,3 +36,8 @@ a {
 button {
   cursor: pointer;
 }
+
+ul {
+  list-style: none;
+  margin-left: 16px;
+}
