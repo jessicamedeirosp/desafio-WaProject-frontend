@@ -1,5 +1,6 @@
 import { useItem } from '../hooks/useItem';
 import styles from '../css/ExportButton.module.css'
+import { v4 as uuidv4 } from 'uuid';
 
 export function ExportButton()  {
   const { items } = useItem();
@@ -9,7 +10,8 @@ export function ExportButton()  {
     const newUrl = URL.createObjectURL(newBlob);
     const linkElement = document.createElement('a');
     linkElement.href = newUrl;
-    linkElement.download = 'animal.json';
+
+    linkElement.download = uuidv4() + '.json';
     linkElement.click();
     URL.revokeObjectURL(newUrl);
   };
