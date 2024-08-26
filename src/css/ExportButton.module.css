@@ -1,0 +1,14 @@
+
+.export__button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: #28a745;
+  color: var(--white-900);
+  font-size: 1.6rem;
+  min-width: 200px;
+}
+
+.export__button:hover {
+  background-color: #218838;
+}

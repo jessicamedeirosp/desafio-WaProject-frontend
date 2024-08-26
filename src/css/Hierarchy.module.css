@@ -1,0 +1,17 @@
+.hierarchy__list {
+  margin-left: 24px;
+}
+
+.hierarchy__list.no-space-left {
+  margin-left: 0; 
+}
+
+@media(max-width: 768px) {
+  .hierarchy__input {
+    margin-left: 8px;
+  }
+  .hierarchy__container {
+    max-width: 100%;
+  overflow-x: auto;
+  }
+}

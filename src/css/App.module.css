@@ -1,10 +1,9 @@
 
 .container {
   max-width: 1280px;
-  padding: 16px;
+  padding: 32px 16px;
   margin: auto;
 }
-
 
 .hierarchy__group {
   display: flex;
@@ -12,10 +11,10 @@
   justify-content: center;
   margin-bottom: 24px;
   gap: 16px;
-
 }
 
 .hierarchy__title {
   text-align: center;
+  color: var(--black-900);
   text-transform: capitalize;
 }

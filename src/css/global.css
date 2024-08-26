@@ -1,6 +1,8 @@
 :root {
   --white-900: #ffffff;
-  --black-900: #000000;
+  --black-900: #161616;
+  --gray-100: #cccccc;
+  --border-radius: 4px;
 }
 
 * {
@@ -17,6 +19,7 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   font-size: 1.6rem;
+  background-color: #fafafa;
 }
 
 body,
@@ -38,6 +41,5 @@ button {
 }
 
 ul {
-  list-style: none;
-  margin-left: 16px;
+  list-style: none; 
 }
