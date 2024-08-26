@@ -10,10 +10,10 @@ export function Form({item, prefix}: FormProps) {
   const { items, setItems, addItem } = useItem();
 
   function updateItem(list: IItem[], id: string, newName: string): IItem[]  {
-    return list.map((element) => {
+    return list.map((element) => {    
       let newElement = element
 
-      if (item.id === id) {
+      if (element.id === id) {
         newElement = { 
           ...element, 
           name: newName 
@@ -21,10 +21,10 @@ export function Form({item, prefix}: FormProps) {
         return newElement
       }
 
-      if (item.children) {
+      if (element.children) {
         newElement = { 
           ...element, 
-          children: updateItem(item.children, id, newName) 
+          children: updateItem(element.children, id, newName) 
         };
         return newElement
       }
