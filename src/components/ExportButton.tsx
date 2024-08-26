@@ -1,4 +1,5 @@
 import { useItem } from '../hooks/useItem';
+import styles from '../css/ExportButton.module.css'
 
 export function ExportButton()  {
   const { items } = useItem();
@@ -13,6 +14,6 @@ export function ExportButton()  {
     URL.revokeObjectURL(newUrl);
   };
 
-  return <button className="export__button" onClick={exportFileJSON}>Salvar JSON</button>;
+  return <button className={styles.export__button} onClick={exportFileJSON}>Baixar arquivo (JSON)</button>;
 };
 

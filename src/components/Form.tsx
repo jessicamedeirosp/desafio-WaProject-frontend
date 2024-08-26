@@ -1,5 +1,6 @@
 import { useItem } from "../hooks/useItem";
 import { IItem } from "../interfaces/Item";
+import styles from '../css/Form.module.css'
 
 interface FormProps {
   item: IItem
@@ -37,19 +38,30 @@ export function Form({item, prefix}: FormProps) {
     setItems(updateItem(items, id, newName));
   }; 
 
+  function getColorButton() {
+    const level = prefix + 1
+    const red = (level * 60) % 256;
+    const green = (level * 110) % 256;
+    const blue = (level * 160) % 256;
+    
+    return `rgba(${red}, ${green}, ${blue}, 0.80)`;
+  }
   return (
     <>
-      <span className="hierarchy__prefix">Nível {prefix}</span>
+      {/* <span className={styles.hierarchy__prefix}>Nível {prefix}</span> */}
+      <button 
+        style={{ backgroundColor: getColorButton() }}
+        className={styles.hierarchy__button} 
+        onClick={() => addItem(item.id)}>
+         Adicionar item ao Nível {prefix + 1}
+      </button>
       <input
         type="text"
         value={item.name}
         onChange={(e) => handleItemChange(item.id, e.target.value)}
         placeholder="Digite o nome do item"
-        className="hierarchy__input"
-      />
-      <button className="hierarchy__button" onClick={() => addItem(item.id)}>
-        Nível {prefix + 1} - Adicionar item
-      </button>
+        className={styles.hierarchy__input}
+      />     
     </>
   );
 };
