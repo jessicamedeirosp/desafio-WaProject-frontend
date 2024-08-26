@@ -62,13 +62,14 @@ export function ItemProvider({ children }: ItemProviderProps) {
           ...element, 
           children: [...element.children, newItem] 
         };
+        return newElement
       }
-
       if (element.children) {
         newElement = { 
             ...element, 
             children: addItemToParent(element.children, newItem, parentId) 
         };
+        return newElement
       }
 
       return newElement;
